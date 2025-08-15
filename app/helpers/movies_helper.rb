@@ -1,6 +1,6 @@
 module MoviesHelper
   def shortener(movie)
-    truncate(movie.description, length: 35, separator: ' ')
+    truncate(movie.description, length: 35, separator: " ")
   end
 
   def total_gross(movie)
