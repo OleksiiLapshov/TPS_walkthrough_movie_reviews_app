@@ -3,9 +3,9 @@
         <li>
             <strong><%= movie.title %></strong>
             (<%= movie.rating %>):
-            <%= number_to_currency(movie.total_gross, precision: 0) %>
-            <p><%= movie.description %></p>
-            <p>Release: <%= movie.released_on %></p>
+            <%= total_gross(movie) %>
+            <p><%= shortener(movie) %></p>
+            <p>Release: <%= formated_date(movie) %></p>
         </li>
     <% end %>
 </ul>
