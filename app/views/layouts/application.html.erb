@@ -23,6 +23,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= image_tag("logo.png")%>
+    </header>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <p>Made by Tachyon_Shift studio (c)2025</p>
+    </footer>
   </body>
 </html>
