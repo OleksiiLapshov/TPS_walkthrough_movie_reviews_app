@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root "movies#index"
 
   resource :session, only: [ :new, :create, :destroy ]
-
+  get "signin" => "sessions#new"
+  
   resources :movies do
     resources :reviews
   end
@@ -11,6 +12,4 @@ Rails.application.routes.draw do
   resources :users
   get "signup" => "users#new"
 
-  resource :session, only: [ :new, :create, :destroy ]
-  get "signin" => "sessions#new"
 end
