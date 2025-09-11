@@ -49,6 +49,14 @@
         <% end %>
       </ul>
     <% end %>
+    <% if @genres.present? %>
+      <h4>Genres</h4>
+      <% @genres.each do |g| %>
+        <li>
+          <%= g.name %>
+        </li>
+      <% end %>
+    <% end %>
   </aside>
 </section>
 
