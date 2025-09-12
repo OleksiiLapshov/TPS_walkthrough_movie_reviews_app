@@ -49,7 +49,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path, status: :see_other, alert: "Movie \"#{@movie.title}\" deleted!"
   end
 
-  private
+private
     def movie_params
       params[:movie].permit(:title, :description, :rating, :released_on, :total_gross, :director,
                             :duration, :image_file_name, genre_ids: [])
