@@ -1,4 +1,7 @@
 class Movie < ApplicationRecord
+
+  before_save :set_slug
+
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
@@ -8,6 +11,7 @@ class Movie < ApplicationRecord
 
   RATINGS = %w(G PG PG-13 R NC-17)
 
+  validates :title, presence: true, uniqueness: true
   validates :title, :released_on, :duration, presence: true
   validates :description, length: { minimum: 25 }
   validates :total_gross, numericality: { greater_than_or_equal_to: 0 }
@@ -30,6 +34,16 @@ class Movie < ApplicationRecord
 
   def average_stars
     reviews.average(:stars) || 0.0
+  end
+
+  def to_param
+    slug
+  end
+
+private
+
+  def set_slug
+    self.slug = title.parameterize
   end
 
 end
